@@ -1,4 +1,4 @@
-package com.example.myapplication.teest
+package com.example.myapplication.RestApi
 
 import com.google.gson.annotations.SerializedName
 

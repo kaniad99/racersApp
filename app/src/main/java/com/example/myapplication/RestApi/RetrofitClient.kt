@@ -1,4 +1,4 @@
-package com.example.myapplication.teest
+package com.example.myapplication.RestApi
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

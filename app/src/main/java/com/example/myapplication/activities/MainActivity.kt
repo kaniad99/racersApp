@@ -1,23 +1,25 @@
-package com.example.myapplication
+package com.example.myapplication.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.StrictMode
 import android.os.StrictMode.ThreadPolicy
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
+import com.example.myapplication.R
+import com.example.myapplication.RestApi.Service
 import com.example.myapplication.databinding.LoginLayoutBinding
-import com.example.myapplication.teest.Service
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: LoginLayoutBinding
-    private lateinit var responseBody: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +33,13 @@ class MainActivity : AppCompatActivity() {
         StrictMode.setThreadPolicy(policy)
 
         binding.authenticate.setOnClickListener {
+            val service = Service()
 
+            if(service.login()) {
+                Log.d("MainActivity", "User logged in")
+                val intent = Intent(this@MainActivity, LoggedInActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 

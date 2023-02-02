@@ -1,4 +1,4 @@
-package com.example.myapplication.teest
+package com.example.myapplication.RestApi
 
 import android.util.Log
 import com.google.gson.Gson
@@ -8,11 +8,11 @@ import okhttp3.ResponseBody
 
 class Service {
     private val retrofit = RetrofitClient.getClient()
-    private val userApi = retrofit.create(UserApi::class.java)
+    private val serviceApi = retrofit.create(ServiceApi::class.java)
     private val gson = Gson()
 
     fun getUsers() {
-        val usersResponse = userApi.getUsers()
+        val usersResponse = serviceApi.getUsers()
             .execute()
 
         val successful = usersResponse.isSuccessful
@@ -45,7 +45,7 @@ class Service {
     }
 
     fun getRacers() {
-        val usersResponse = userApi.getRacers()
+        val usersResponse = serviceApi.getRacers()
             .execute()
 
         val successful = usersResponse.isSuccessful
@@ -71,5 +71,26 @@ class Service {
             body!!.getAsJsonObject("_embedded").getAsJsonArray("racers"),
             racersListType
         )
+    }
+
+    fun login(): Boolean {
+        val loginResponse = serviceApi.login()
+            .execute()
+
+        val successful = loginResponse.isSuccessful
+        val httpStatusCode = loginResponse.code()
+        val httpStatusMessage = loginResponse.message()
+
+        val errorBody: ResponseBody? = loginResponse.errorBody()
+
+        if (errorBody != null) {
+            Log.e("Retrofit", "Error body:" + errorBody.string())
+        } else {
+            Log.d("Retrofit", "IsSuccessful:$successful")
+            Log.d("Retrofit", "StatusCode:$httpStatusCode")
+            Log.d("Retrofit", "StatusMessage:$httpStatusMessage")
+        }
+
+        return successful
     }
 }
