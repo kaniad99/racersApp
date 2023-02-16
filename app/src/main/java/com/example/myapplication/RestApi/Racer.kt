@@ -3,7 +3,7 @@ package com.example.myapplication.RestApi
 import com.google.gson.annotations.SerializedName
 
 class Racer(
-    @SerializedName("firstname")
+    @SerializedName("firstName")
     val firstName: String,
     @SerializedName("lastName")
     val lastName: String,
@@ -17,4 +17,8 @@ class Racer(
     val trackName: String,
     @SerializedName("recordTimeOfTrack")
     val recordTimeOfTrack: String
-)
+) {
+    override fun toString(): String {
+        return "Racer(firstName='$firstName', lastName='$lastName', dateOfBirth='$dateOfBirth', vehicleBrand='$vehicleBrand', vehicleModel='$vehicleModel', trackName='$trackName', recordTimeOfTrack='$recordTimeOfTrack')"
+    }
+}

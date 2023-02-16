@@ -44,7 +44,7 @@ class Service {
         Log.d("Retrofit", usersList.size.toString())
     }
 
-    fun getRacers() {
+    fun getRacers() : List<Racer> {
         val usersResponse = serviceApi.getRacers()
             .execute()
 
@@ -65,12 +65,14 @@ class Service {
             Log.d("Retrofit", "Body:${body.toString()}")
         }
 
-        val racersListType = object : TypeToken<List<User>>() {}.type
+        val racersListType = object : TypeToken<List<Racer>>() {}.type
 
-        val racersList: List<User> = gson.fromJson(
+        val racersList: List<Racer> = gson.fromJson(
             body!!.getAsJsonObject("_embedded").getAsJsonArray("racers"),
             racersListType
         )
+
+        return racersList
     }
 
     fun login(): Boolean {

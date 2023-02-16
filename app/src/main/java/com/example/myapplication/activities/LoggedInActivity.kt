@@ -1,5 +1,6 @@
 package com.example.myapplication.activities
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.databinding.ActivityLoggedInBinding
@@ -12,7 +13,11 @@ class LoggedInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityLoggedInBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
+        binding.racersButton.setOnClickListener {
+            val intent = Intent(this@LoggedInActivity, RacersListActivity::class.java)
+            startActivity(intent)
+        }
+        setContentView(binding.root)
     }
 }
