@@ -13,4 +13,5 @@
     <string name="title_activity_logged_in">LoggedInActivity</string>
     <string name="tab_text_1">Racers</string>
     <string name="tab_text_2">Users</string>
+    <string name="title_activity_racers_list">RacersListActivity</string>
 </resources>

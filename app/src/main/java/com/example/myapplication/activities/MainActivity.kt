@@ -27,19 +27,20 @@ class MainActivity : AppCompatActivity() {
         binding = LoginLayoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        setSupportActionBar(binding.toolbar)
-
         val policy = ThreadPolicy.Builder().permitAll().build()
         StrictMode.setThreadPolicy(policy)
 
         binding.authenticate.setOnClickListener {
             val service = Service()
 
-            if(service.login()) {
-                Log.d("MainActivity", "User logged in")
-                val intent = Intent(this@MainActivity, LoggedInActivity::class.java)
-                startActivity(intent)
-            }
+            val intent = Intent(this@MainActivity, LoggedInActivity::class.java)
+            startActivity(intent)
+
+//            if(service.login()) {
+//                Log.d("MainActivity", "User logged in")
+//                val intent = Intent(this@MainActivity, LoggedInActivity::class.java)
+//                startActivity(intent)
+//            }
         }
     }
 
