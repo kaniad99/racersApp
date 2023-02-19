@@ -20,7 +20,9 @@
             android:layout_marginStart="10dp"
             android:text="First Name"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            style="@style/Widget.Cupcake.TextView.OrderSummary"
+            />
 
         <TextView
             android:id="@+id/textView2"
@@ -29,7 +31,8 @@
             android:layout_marginStart="10dp"
             android:text="Last Name"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            style="@style/Widget.Cupcake.TextView.OrderSummary"/>
 
     </LinearLayout>
 

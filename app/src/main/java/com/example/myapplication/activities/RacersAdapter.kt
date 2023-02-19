@@ -28,15 +28,14 @@ data class RacersAdapter(
         val racerViewModel = mList[position]
 
         // sets the image to the textview1 from our itemHolder class
-        holder.textView1.text = racerViewModel.racer.firstName
+        holder.firstName.text = racerViewModel.racer.firstName
 
         // sets the text to the textview2 from our itemHolder class
-        holder.textView2.text = racerViewModel.racer.lastName
+        holder.lastName.text = racerViewModel.racer.lastName
 
         holder.itemView.setOnClickListener {
             onItemClicked(racerViewModel)
         }
-
 
     }
 
@@ -48,7 +47,7 @@ data class RacersAdapter(
 
     // Holds the views for adding it to image and text
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
-        val textView1: TextView = itemView.findViewById(R.id.textView1)
-        val textView2: TextView = itemView.findViewById(R.id.textView2)
+        val firstName: TextView = itemView.findViewById(R.id.textView1)
+        val lastName: TextView = itemView.findViewById(R.id.textView2)
     }
 }

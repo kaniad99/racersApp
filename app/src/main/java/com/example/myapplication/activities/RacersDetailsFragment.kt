@@ -37,6 +37,7 @@ class RacersDetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.textFirstName.text = sharedViewModel.firstName.value
+        binding.textLastName.text = sharedViewModel.lastName.value
 
         binding.buttonSecond.setOnClickListener {
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)

@@ -45,6 +45,8 @@ class RacersListFragment : Fragment() {
 
         val adapter = RacersAdapter(data) { racersViewModel ->
             run {
+                sharedViewModel.setFirstName(racersViewModel.racer.firstName)
+                sharedViewModel.setLastName(racersViewModel.racer.lastName)
                 findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
             }
         }
