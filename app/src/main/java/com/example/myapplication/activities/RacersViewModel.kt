@@ -17,10 +17,6 @@ class RacersViewModel(val racer: Racer) : ViewModel() {
         reset()
     }
 
-    fun setFirstName(firstName: String){
-        _firstName.value = firstName
-    }
-
     fun reset() {
         _firstName.value = "Adam"
         _lastName.value = "Małysz"

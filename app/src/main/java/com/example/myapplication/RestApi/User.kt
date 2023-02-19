@@ -3,7 +3,7 @@ package com.example.myapplication.RestApi
 import com.google.gson.annotations.SerializedName
 
 data class User(
-    @SerializedName("firstname")
+    @SerializedName("firstName")
     val firstName: String,
     @SerializedName("lastName")
     val lastName: String,

@@ -11,7 +11,7 @@ class Service {
     private val serviceApi = retrofit.create(ServiceApi::class.java)
     private val gson = Gson()
 
-    fun getUsers() {
+    fun getUsers() : List<User> {
         val usersResponse = serviceApi.getUsers()
             .execute()
 
@@ -42,6 +42,8 @@ class Service {
 
 
         Log.d("Retrofit", usersList.size.toString())
+
+        return usersList
     }
 
     fun getRacers() : List<Racer> {
