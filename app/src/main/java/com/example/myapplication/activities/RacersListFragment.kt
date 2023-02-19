@@ -47,13 +47,18 @@ class RacersListFragment : Fragment() {
             run {
                 sharedViewModel.setFirstName(racersViewModel.racer.firstName)
                 sharedViewModel.setLastName(racersViewModel.racer.lastName)
+                sharedViewModel.setDateOfBirth(racersViewModel.racer.dateOfBirth)
+                sharedViewModel.setVehicleBrandName(racersViewModel.racer.vehicleBrand)
+                sharedViewModel.setVehicleModel(racersViewModel.racer.vehicleModel)
+                sharedViewModel.setTrackName(racersViewModel.racer.trackName)
+                sharedViewModel.setRecordTime(racersViewModel.racer.recordTimeOfTrack)
+
                 findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
             }
         }
 
 
         binding.racersRecyclerView.adapter = adapter
-        ////////////////////////////////////////////
 
         binding.buttonFirst.setOnClickListener {
 

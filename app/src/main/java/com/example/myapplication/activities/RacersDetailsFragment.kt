@@ -38,6 +38,11 @@ class RacersDetailsFragment : Fragment() {
 
         binding.textFirstName.text = sharedViewModel.firstName.value
         binding.textLastName.text = sharedViewModel.lastName.value
+        binding.textDateOfBirth.text = sharedViewModel.dateOfBirth.value
+        binding.textVehicleBrand.text = sharedViewModel.vehicleBrand.value
+        binding.textVehicleModel.text = sharedViewModel.vehicleModel.value
+        binding.textTrackName.text = sharedViewModel.trackName.value
+        binding.textRecordTime.text = sharedViewModel.recordTime.value
 
         binding.buttonSecond.setOnClickListener {
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
