@@ -1,4 +1,4 @@
-package com.example.myapplication.activities
+package com.example.myapplication.activities.racerslist
 
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -32,6 +32,7 @@ class RacersListActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+
     }
 
     override fun onSupportNavigateUp(): Boolean {

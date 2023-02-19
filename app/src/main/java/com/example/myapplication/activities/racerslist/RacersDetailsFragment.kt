@@ -1,4 +1,4 @@
-package com.example.myapplication.activities
+package com.example.myapplication.activities.racerslist
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
+import com.example.myapplication.activities.RacerViewModel
 import com.example.myapplication.databinding.FragmentRacerDetailsBinding
 
 /**

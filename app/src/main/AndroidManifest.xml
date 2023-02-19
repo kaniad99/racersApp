@@ -15,7 +15,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31" >
         <activity
-            android:name=".activities.RacersListActivity"
+            android:name=".activities.userslist.UsersListActivity"
+            android:exported="false"
+            android:label="@string/title_activity_users_list"
+            android:theme="@style/Theme.MyApplication.NoActionBar" />
+        <activity
+            android:name=".activities.racerslist.RacersListActivity"
             android:exported="false"
             android:label="@string/title_activity_racers_list"
             android:theme="@style/Theme.MyApplication.NoActionBar" />
