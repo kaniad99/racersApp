@@ -7,7 +7,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 
-data class RacersAdapter(private val mList: List<RacersViewModel>) :
+data class RacersAdapter(
+    private val mList: List<RacersViewModel>,
+    private val onItemClicked: (RacersViewModel) -> Unit
+) :
     RecyclerView.Adapter<RacersAdapter.ViewHolder>() {
     // create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -30,7 +33,13 @@ data class RacersAdapter(private val mList: List<RacersViewModel>) :
         // sets the text to the textview2 from our itemHolder class
         holder.textView2.text = racerViewModel.racer.lastName
 
+        holder.itemView.setOnClickListener {
+            onItemClicked(racerViewModel)
+        }
+
+
     }
+
 
     // return the number of the items in the list
     override fun getItemCount(): Int {
