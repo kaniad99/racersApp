@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentRacerDetailsBinding
@@ -15,6 +16,8 @@ import com.example.myapplication.databinding.FragmentRacerDetailsBinding
 class RacersDetailsFragment : Fragment() {
 
     private var _binding: FragmentRacerDetailsBinding? = null
+
+    private val sharedViewModel : RacerViewModel by activityViewModels()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -32,6 +35,8 @@ class RacersDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.textFirstName.text = sharedViewModel.firstName.value
 
         binding.buttonSecond.setOnClickListener {
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)

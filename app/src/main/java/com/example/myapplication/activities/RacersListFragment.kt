@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.R
@@ -18,6 +18,8 @@ import com.example.myapplication.databinding.FragmentRacersListBinding
 class RacersListFragment : Fragment() {
 
     private var _binding: FragmentRacersListBinding? = null
+
+    private val sharedViewModel: RacerViewModel by activityViewModels()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -43,10 +45,10 @@ class RacersListFragment : Fragment() {
 
         val adapter = RacersAdapter(data) { racersViewModel ->
             run {
-                Toast.makeText(context, racersViewModel.racer.firstName, Toast.LENGTH_SHORT).show()
                 findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
             }
         }
+
 
         binding.racersRecyclerView.adapter = adapter
         ////////////////////////////////////////////
@@ -60,8 +62,6 @@ class RacersListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
     }
 
     override fun onDestroyView() {
