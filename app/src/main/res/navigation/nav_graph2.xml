@@ -24,5 +24,19 @@
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_SecondFragment_to_editUserFragment"
+            app:destination="@id/editUserFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/editUserFragment"
+        android:name="com.example.myapplication.activities.userslist.EditUserFragment"
+        android:label="Edit user"
+        tools:layout="@layout/fragment_edit_user" >
+        <action
+            android:id="@+id/action_editUserFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
     </fragment>
 </navigation>

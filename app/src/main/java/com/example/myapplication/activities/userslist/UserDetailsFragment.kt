@@ -39,7 +39,7 @@ class UserDetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.editButton.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+            findNavController().navigate(R.id.action_SecondFragment_to_editUserFragment)
         }
 
         binding.deleteButton.setOnClickListener {
@@ -66,6 +66,15 @@ class UserDetailsFragment : Fragment() {
 
             builder.show()
         }
+
+        binding.editButton.setOnClickListener {
+            findNavController().navigate(R.id.action_SecondFragment_to_editUserFragment)
+        }
+
+        binding.textFirstName.text = sharedViewModel.firstName.value
+        binding.textLastName.text = sharedViewModel.lastName.value
+        binding.textDescription.text = sharedViewModel.description.value
+        binding.textEmail.text = sharedViewModel.email.value
     }
 
     override fun onDestroyView() {
