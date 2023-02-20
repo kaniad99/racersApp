@@ -16,6 +16,4 @@ class BasicAuthorizationInterceptor(username: String, password: String) : Interc
         return chain.proceed(requestWithHeader)
     }
 
-
-
 }

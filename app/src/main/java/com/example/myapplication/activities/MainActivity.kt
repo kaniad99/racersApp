@@ -7,6 +7,7 @@ import android.os.StrictMode.ThreadPolicy
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -33,14 +34,13 @@ class MainActivity : AppCompatActivity() {
         binding.authenticate.setOnClickListener {
             val service = Service()
 
-            val intent = Intent(this@MainActivity, LoggedInActivity::class.java)
-            startActivity(intent)
-
-//            if(service.login()) {
-//                Log.d("MainActivity", "User logged in")
-//                val intent = Intent(this@MainActivity, LoggedInActivity::class.java)
-//                startActivity(intent)
-//            }
+            if(service.login(binding.loginInput.editText?.text.toString(), binding.passwordInput.editText?.text.toString())) {
+                Log.d("MainActivity", "User logged in")
+                val intent = Intent(this@MainActivity, LoggedInActivity::class.java)
+                startActivity(intent)
+            } else {
+                Toast.makeText(applicationContext, "Login failed", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

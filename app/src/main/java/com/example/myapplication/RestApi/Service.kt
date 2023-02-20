@@ -7,12 +7,12 @@ import com.google.gson.reflect.TypeToken
 import okhttp3.ResponseBody
 
 class Service {
-    private val retrofit = RetrofitClient.getClient()
-    private val serviceApi = retrofit.create(ServiceApi::class.java)
+    private var retrofit = RetrofitClient.getClient()
+    private var serviceApi = retrofit.create(ServiceApi::class.java)
     private val gson = Gson()
 
     fun getUsers() : List<User> {
-        val usersResponse = serviceApi.getUsers()
+        val usersResponse = serviceApi.getUsers(RetrofitClient.getSessionId())
             .execute()
 
         val successful = usersResponse.isSuccessful
@@ -47,7 +47,7 @@ class Service {
     }
 
     fun getRacers() : List<Racer> {
-        val usersResponse = serviceApi.getRacers()
+        val usersResponse = serviceApi.getRacers(RetrofitClient.getSessionId())
             .execute()
 
         val successful = usersResponse.isSuccessful
@@ -77,11 +77,19 @@ class Service {
         return racersList
     }
 
-    fun login(): Boolean {
+    fun login(login: String, password: String): Boolean {
+        retrofit = RetrofitClient.getClient(login, password)
+        serviceApi = retrofit.create(ServiceApi::class.java)
+
         val loginResponse = serviceApi.login()
             .execute()
 
         val successful = loginResponse.isSuccessful
+
+        if(successful) {
+            RetrofitClient.setSessionId(loginResponse.headers()["Set-Cookie"].toString())
+        }
+
         val httpStatusCode = loginResponse.code()
         val httpStatusMessage = loginResponse.message()
 
@@ -100,7 +108,7 @@ class Service {
 
     fun addRacer(racer: Racer) : Boolean {
 
-        val addRacerResponse = serviceApi.addRacer(racer).execute()
+        val addRacerResponse = serviceApi.addRacer(RetrofitClient.getSessionId(), racer).execute()
 
         val successful = addRacerResponse.isSuccessful
         val httpStatusCode = addRacerResponse.code()
@@ -120,7 +128,7 @@ class Service {
     }
 
     fun deleteRacer(id: Int) : Boolean {
-        val addRacerResponse = serviceApi.deleteRacerById(id).execute()
+        val addRacerResponse = serviceApi.deleteRacerById(RetrofitClient.getSessionId(), id).execute()
 
         val successful = addRacerResponse.isSuccessful
         val httpStatusCode = addRacerResponse.code()
@@ -140,7 +148,7 @@ class Service {
     }
 
     fun editRacer(id: Int, racer: Racer) : Boolean {
-        val addRacerResponse = serviceApi.editRacer(id, racer).execute()
+        val addRacerResponse = serviceApi.editRacer(RetrofitClient.getSessionId(), id, racer).execute()
 
         val successful = addRacerResponse.isSuccessful
         val httpStatusCode = addRacerResponse.code()
@@ -160,7 +168,7 @@ class Service {
     }
 
     fun deleteUser(id: Int) : Boolean {
-        val addRacerResponse = serviceApi.deleteUserById(id).execute()
+        val addRacerResponse = serviceApi.deleteUserById(RetrofitClient.getSessionId(), id).execute()
 
         val successful = addRacerResponse.isSuccessful
         val httpStatusCode = addRacerResponse.code()
@@ -180,7 +188,7 @@ class Service {
     }
 
     fun editUser(id: Int, user: User) : Boolean {
-        val addRacerResponse = serviceApi.editUser(id, user).execute()
+        val addRacerResponse = serviceApi.editUser(RetrofitClient.getSessionId(), id, user).execute()
 
         val successful = addRacerResponse.isSuccessful
         val httpStatusCode = addRacerResponse.code()
@@ -201,7 +209,7 @@ class Service {
 
     fun addUser(user: User) : Boolean {
 
-        val addRacerResponse = serviceApi.addUser(user).execute()
+        val addRacerResponse = serviceApi.addUser(RetrofitClient.getSessionId(), user).execute()
 
         val successful = addRacerResponse.isSuccessful
         val httpStatusCode = addRacerResponse.code()
