@@ -15,6 +15,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activities.userslist.CreateUserActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.racerslist.CreateRacerActivity"
             android:exported="false"
             android:label="Create new racer"

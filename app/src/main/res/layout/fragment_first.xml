@@ -14,14 +14,14 @@
         tools:itemCount="5"
         tools:listitem="@layout/racer_view_design"/>
 
-    <Button
-        android:id="@+id/button_first"
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/next"
-        app:layout_constraintTop_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_gravity="bottom|end"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:layout_margin="16sp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

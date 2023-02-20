@@ -1,5 +1,6 @@
 package com.example.myapplication.activities.userslist
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,13 +11,14 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.R
 import com.example.myapplication.RestApi.Service
+import com.example.myapplication.activities.racerslist.RacersListActivity
 import com.example.myapplication.databinding.FragmentFirstBinding
 import com.google.gson.JsonObject
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class FirstFragment : Fragment() {
+class UsersListFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
 
@@ -33,10 +35,14 @@ class FirstFragment : Fragment() {
 
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
 
+
+        return binding.root
+    }
+
+    private fun setupRecyclerView() {
         val service = Service()
 
         val listUsers = service.getUsers()
-
 
         binding.usersRecyclerView.layoutManager = LinearLayoutManager(activity)
         val data = ArrayList<UsersViewModel>()
@@ -57,8 +63,6 @@ class FirstFragment : Fragment() {
             }
         }
         binding.usersRecyclerView.adapter = adapter
-
-        return binding.root
     }
 
     private fun getId(href: JsonObject): Int {
@@ -69,9 +73,15 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonFirst.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+        binding.fab.setOnClickListener {
+            val intent = Intent(activity, CreateUserActivity::class.java)
+            startActivity(intent)
         }
+    }
+
+    override fun onResume() {
+        setupRecyclerView()
+        super.onResume()
     }
 
     override fun onDestroyView() {

@@ -28,6 +28,9 @@ interface ServiceApi {
     @PUT("racers/{racerId}/profile")
     fun editRacer(@Path("racerId") racerId: Int, @Body racer: Racer): Call<Void>
 
+    @POST("users")
+    fun addUser(@Body user: User): Call<Void>
+
     @DELETE("users/{userId}")
     fun deleteUserById(@Path("userId") userId: Int): Call<Void>
 
