@@ -17,6 +17,6 @@ interface ServiceApi {
     fun login(): Call<Void>
 
     @POST("racers")
-    fun addRacer(@Body racer: Racer): Call<Racer>
+    fun addRacer(@Body racer: Racer): Call<Void>
 
 }

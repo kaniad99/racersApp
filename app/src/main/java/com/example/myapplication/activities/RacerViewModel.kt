@@ -66,4 +66,7 @@ class RacerViewModel : ViewModel() {
     fun setRecordTime(recordTime: String) {
         _recordTime.value = recordTime
     }
+    fun setId(id: Int) {
+        _id.value = id
+    }
 }

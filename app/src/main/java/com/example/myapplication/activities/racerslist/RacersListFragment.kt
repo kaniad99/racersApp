@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -16,6 +15,7 @@ import com.example.myapplication.activities.CreateRacerActivity
 import com.example.myapplication.activities.RacerViewModel
 import com.example.myapplication.activities.RacersViewModel
 import com.example.myapplication.databinding.FragmentRacersListBinding
+import com.google.gson.JsonObject
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -35,12 +35,24 @@ class RacersListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentRacersListBinding.inflate(inflater, container, false)
-        val service = Service()
 
+        binding.fab.setOnClickListener {
+            val intent = Intent(activity, CreateRacerActivity::class.java)
+            startActivity(intent)
+        }
+
+        return binding.root
+    }
+
+    override fun onResume() {
+        setupRacerList()
+        super.onResume()
+    }
+
+    private fun setupRacerList() {
+        val service = Service()
         val listRacers = service.getRacers()
 
-        ////////////////////////////////////////////////////////
-//         RECYCLER VIEW SETUP
         binding.racersRecyclerView.layoutManager = LinearLayoutManager(activity)
         val data = ArrayList<RacersViewModel>()
 
@@ -57,20 +69,17 @@ class RacersListFragment : Fragment() {
                 sharedViewModel.setVehicleModel(racersViewModel.racer.vehicleModel)
                 sharedViewModel.setTrackName(racersViewModel.racer.trackName)
                 sharedViewModel.setRecordTime(racersViewModel.racer.recordTimeOfTrack)
+                sharedViewModel.setId(getId(racersViewModel.racer.link))
 
                 findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
             }
         }
-
-
         binding.racersRecyclerView.adapter = adapter
+    }
 
-        binding.fab.setOnClickListener {
-            val intent = Intent(activity, CreateRacerActivity::class.java)
-            startActivity(intent)
-        }
-
-        return binding.root
+    private fun getId(href: JsonObject): Int {
+        val link = href.getAsJsonObject("racer").get("href").asString
+        return link.substringAfterLast("/").toInt();
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
