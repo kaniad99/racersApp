@@ -156,12 +156,15 @@
         <TextView
             android:id="@+id/textTrackName"
             style="@style/Widget.Cupcake.TextView.OrderSummary"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="Track name"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/purple_500"
+            android:onClick="onClick"
+            android:clickable="true"/>
 
         <View
             android:id="@+id/divider6"

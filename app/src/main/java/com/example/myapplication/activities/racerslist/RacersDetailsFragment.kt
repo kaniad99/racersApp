@@ -2,6 +2,7 @@ package com.example.myapplication.activities.racerslist
 
 import android.app.AlertDialog
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -59,7 +60,6 @@ class RacersDetailsFragment : Fragment() {
             builder.show()
         }
 
-
         binding.editButton.setOnClickListener {
             findNavController().navigate(R.id.action_SecondFragment_to_editRacerFragment)
         }
@@ -79,10 +79,22 @@ class RacersDetailsFragment : Fragment() {
         binding.textTrackName.text = sharedViewModel.trackName.value
         binding.textRecordTime.text = sharedViewModel.recordTime.value
 
+//        set Google Maps Listeners
+        binding.textTrackName.setOnClickListener {
+            val gmmIntentUri = Uri.parse("geo:0,0?q=" + binding.textTrackName.text)
+            val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+            mapIntent.setPackage("com.google.android.apps.maps")
+            startActivity(mapIntent)
+        }
+
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    fun onClick(view: View) {
+
     }
 }
