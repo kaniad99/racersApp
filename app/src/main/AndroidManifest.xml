@@ -18,7 +18,7 @@
             android:name=".activities.racerslist.CreateRacerActivity"
             android:exported="false"
             android:label="Create new racer"
-            android:theme="@style/Theme.MyApplication.NoActionBar"/>
+            android:theme="@style/Theme.MyApplication.NoActionBar" />
         <activity
             android:name=".activities.userslist.UsersListActivity"
             android:exported="false"

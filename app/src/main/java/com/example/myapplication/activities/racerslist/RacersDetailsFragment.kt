@@ -1,6 +1,7 @@
 package com.example.myapplication.activities.racerslist
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -56,6 +57,11 @@ class RacersDetailsFragment : Fragment() {
             }
 
             builder.show()
+        }
+
+
+        binding.editButton.setOnClickListener {
+            findNavController().navigate(R.id.action_SecondFragment_to_editRacerFragment)
         }
 
         return binding.root

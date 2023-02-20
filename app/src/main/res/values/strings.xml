@@ -14,4 +14,6 @@
     <string name="tab_text_2">Users</string>
     <string name="title_activity_racers_list">RacersListActivity</string>
     <string name="title_activity_users_list">UsersListActivity</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

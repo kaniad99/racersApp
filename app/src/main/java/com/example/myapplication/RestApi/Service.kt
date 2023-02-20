@@ -138,4 +138,24 @@ class Service {
 
         return successful
     }
+
+    fun editRacer(id: Int, racer: Racer) : Boolean {
+        val addRacerResponse = serviceApi.editRacer(id, racer).execute()
+
+        val successful = addRacerResponse.isSuccessful
+        val httpStatusCode = addRacerResponse.code()
+        val httpStatusMessage = addRacerResponse.message()
+
+        val errorBody: ResponseBody? = addRacerResponse.errorBody()
+
+        if (errorBody != null) {
+            Log.e("Retrofit", "Error body:" + errorBody.string())
+        } else {
+            Log.d("Retrofit", "IsSuccessful:$successful")
+            Log.d("Retrofit", "StatusCode:$httpStatusCode")
+            Log.d("Retrofit", "StatusMessage:$httpStatusMessage")
+        }
+
+        return successful
+    }
 }

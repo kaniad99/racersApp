@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".activities.racerslist.EditRacerFragment">
+
+    <ScrollView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtFirstName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="First name"
+                android:textAllCaps="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/textFirstName"
+                style="@style/Widget.Cupcake.TextView.OrderSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text=""
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/txtFirstName"
+                app:layout_constraintTop_toBottomOf="@+id/txtFirstName" />
+
+            <View
+                android:id="@+id/divider1"
+                style="@style/Widget.Cupcake.Divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/txtLastName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="last name"
+                android:textAllCaps="true" />
+
+            <EditText
+                android:id="@+id/textLastName"
+                style="@style/Widget.Cupcake.TextView.OrderSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/divider2"
+                style="@style/Widget.Cupcake.Divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/txtDateOfBirth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date of Birth"
+                android:textAllCaps="true" />
+
+            <EditText
+                android:id="@+id/textDateOfBirth"
+                style="@style/Widget.Cupcake.TextView.OrderSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/divider3"
+                style="@style/Widget.Cupcake.Divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/txtVehicleBrand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vehicle Brand"
+                android:textAllCaps="true" />
+
+            <EditText
+                android:id="@+id/textVehicleBrand"
+                style="@style/Widget.Cupcake.TextView.OrderSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/divider4"
+                style="@style/Widget.Cupcake.Divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/txtVehicleModel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vehicle model"
+                android:textAllCaps="true" />
+
+            <EditText
+                android:id="@+id/textVehicleModel"
+                style="@style/Widget.Cupcake.TextView.OrderSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/divider5"
+                style="@style/Widget.Cupcake.Divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp" />
+
+
+            <TextView
+                android:id="@+id/txtTrackName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Track name"
+                android:textAllCaps="true" />
+
+            <EditText
+                android:id="@+id/textTrackName"
+                style="@style/Widget.Cupcake.TextView.OrderSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/divider6"
+                style="@style/Widget.Cupcake.Divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/txtRecordTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Record time"
+                android:textAllCaps="true" />
+
+            <EditText
+                android:id="@+id/textRecordTime"
+                style="@style/Widget.Cupcake.TextView.OrderSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/divider7"
+                style="@style/Widget.Cupcake.Divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp" />
+
+            <Button
+                android:id="@+id/saveButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                android:gravity="center_horizontal"
+                />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+</LinearLayout>

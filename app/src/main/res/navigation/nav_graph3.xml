@@ -24,5 +24,19 @@
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_SecondFragment_to_editRacerFragment"
+            app:destination="@id/editRacerFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/editRacerFragment"
+        android:name="com.example.myapplication.activities.racerslist.EditRacerFragment"
+        android:label="fragment_edit_racer"
+        tools:layout="@layout/fragment_edit_racer" >
+        <action
+            android:id="@+id/action_editRacerFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+
+
 </navigation>

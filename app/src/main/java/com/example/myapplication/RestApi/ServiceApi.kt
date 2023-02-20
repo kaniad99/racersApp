@@ -6,6 +6,7 @@ import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import retrofit2.http.Path
 
 interface ServiceApi {
@@ -23,5 +24,8 @@ interface ServiceApi {
 
     @DELETE("racers/{racerId}")
     fun deleteRacerById(@Path("racerId") racerId: Int): Call<Void>
+
+    @PUT("racers/{racerId}/profile")
+    fun editRacer(@Path("racerId") racerId: Int, @Body racer: Racer): Call<Void>
 
 }
