@@ -1,4 +1,4 @@
-package com.example.myapplication.activities
+package com.example.myapplication.activities.racerslist
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -69,4 +69,6 @@ class RacerViewModel : ViewModel() {
     fun setId(id: Int) {
         _id.value = id
     }
+
+
 }

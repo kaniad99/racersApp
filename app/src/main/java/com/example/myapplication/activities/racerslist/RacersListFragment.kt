@@ -11,9 +11,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.R
 import com.example.myapplication.RestApi.Service
-import com.example.myapplication.activities.CreateRacerActivity
-import com.example.myapplication.activities.RacerViewModel
-import com.example.myapplication.activities.RacersViewModel
 import com.example.myapplication.databinding.FragmentRacersListBinding
 import com.google.gson.JsonObject
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,9 +9,12 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/details_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="10dp">
 
         <TextView
             android:id="@+id/txtFirstName"
@@ -24,13 +27,13 @@
 
         <TextView
             android:id="@+id/textFirstName"
+            style="@style/Widget.Cupcake.TextView.OrderSummary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="First Name"
-            style="@style/Widget.Cupcake.TextView.OrderSummary"
-            android:textStyle="bold"
             android:textSize="24sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/txtFirstName"
             app:layout_constraintTop_toBottomOf="@+id/txtFirstName" />
 
@@ -47,18 +50,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="last name"
-            android:textAllCaps="true"
-          />
+            android:textAllCaps="true" />
 
         <TextView
             android:id="@+id/textLastName"
+            style="@style/Widget.Cupcake.TextView.OrderSummary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="Last name"
-            android:textStyle="bold"
             android:textSize="24sp"
-            style="@style/Widget.Cupcake.TextView.OrderSummary"/>
+            android:textStyle="bold" />
 
         <View
             android:id="@+id/divider2"
@@ -66,26 +68,24 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            />
+            android:layout_marginBottom="16dp" />
 
         <TextView
             android:id="@+id/txtDateOfBirth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Date of Birth"
-            android:textAllCaps="true"
-            />
+            android:textAllCaps="true" />
 
         <TextView
             android:id="@+id/textDateOfBirth"
+            style="@style/Widget.Cupcake.TextView.OrderSummary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="First Name"
-            android:textStyle="bold"
             android:textSize="24sp"
-            style="@style/Widget.Cupcake.TextView.OrderSummary"/>
+            android:textStyle="bold" />
 
         <View
             android:id="@+id/divider3"
@@ -100,18 +100,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Vehicle Brand"
-            android:textAllCaps="true"
-            />
+            android:textAllCaps="true" />
 
         <TextView
             android:id="@+id/textVehicleBrand"
+            style="@style/Widget.Cupcake.TextView.OrderSummary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="Vehicle brand"
-            android:textStyle="bold"
             android:textSize="24sp"
-            style="@style/Widget.Cupcake.TextView.OrderSummary"/>
+            android:textStyle="bold" />
 
         <View
             android:id="@+id/divider4"
@@ -126,18 +125,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Vehicle model"
-            android:textAllCaps="true"
-            />
+            android:textAllCaps="true" />
 
         <TextView
             android:id="@+id/textVehicleModel"
+            style="@style/Widget.Cupcake.TextView.OrderSummary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="Vehicle model"
-            android:textStyle="bold"
             android:textSize="24sp"
-            style="@style/Widget.Cupcake.TextView.OrderSummary"/>
+            android:textStyle="bold" />
 
         <View
             android:id="@+id/divider5"
@@ -153,18 +151,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Track name"
-            android:textAllCaps="true"
-            />
+            android:textAllCaps="true" />
 
         <TextView
             android:id="@+id/textTrackName"
+            style="@style/Widget.Cupcake.TextView.OrderSummary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="Track name"
-            android:textStyle="bold"
             android:textSize="24sp"
-            style="@style/Widget.Cupcake.TextView.OrderSummary"/>
+            android:textStyle="bold" />
 
         <View
             android:id="@+id/divider6"
@@ -179,18 +176,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Record time"
-            android:textAllCaps="true"
-            />
+            android:textAllCaps="true" />
 
         <TextView
             android:id="@+id/textRecordTime"
+            style="@style/Widget.Cupcake.TextView.OrderSummary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="Record time"
-            android:textStyle="bold"
             android:textSize="24sp"
-            style="@style/Widget.Cupcake.TextView.OrderSummary"/>
+            android:textStyle="bold" />
 
         <View
             android:id="@+id/divider7"
@@ -203,4 +199,23 @@
     </LinearLayout>
 
 
-</LinearLayout>
+    <Button
+        android:id="@+id/edit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="8dp"
+        android:text="Edit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/details_layout" />
+
+    <Button
+        android:id="@+id/delete_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:text="Delete"
+        app:layout_constraintBottom_toBottomOf="@+id/edit_button"
+        app:layout_constraintStart_toEndOf="@+id/edit_button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.myapplication.activities
+package com.example.myapplication.activities.racerslist
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -32,7 +32,8 @@ class CreateRacerActivity : AppCompatActivity() {
                 binding.textVehicleModel.text.toString(),
                 binding.textTrackName.text.toString(),
                 binding.textRecordTime.text.toString(),
-                JsonObject())
+                JsonObject()
+            )
 
             if(service.addRacer(racer)){
                 Toast.makeText(applicationContext, "Created new racer", Toast.LENGTH_SHORT).show()

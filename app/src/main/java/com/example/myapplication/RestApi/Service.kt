@@ -2,7 +2,6 @@ package com.example.myapplication.RestApi
 
 import android.util.Log
 import com.google.gson.Gson
-import com.google.gson.GsonBuilder
 import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
 import okhttp3.ResponseBody
@@ -102,6 +101,26 @@ class Service {
     fun addRacer(racer: Racer) : Boolean {
 
         val addRacerResponse = serviceApi.addRacer(racer).execute()
+
+        val successful = addRacerResponse.isSuccessful
+        val httpStatusCode = addRacerResponse.code()
+        val httpStatusMessage = addRacerResponse.message()
+
+        val errorBody: ResponseBody? = addRacerResponse.errorBody()
+
+        if (errorBody != null) {
+            Log.e("Retrofit", "Error body:" + errorBody.string())
+        } else {
+            Log.d("Retrofit", "IsSuccessful:$successful")
+            Log.d("Retrofit", "StatusCode:$httpStatusCode")
+            Log.d("Retrofit", "StatusMessage:$httpStatusMessage")
+        }
+
+        return successful
+    }
+
+    fun deleteRacer(id: Int) : Boolean {
+        val addRacerResponse = serviceApi.deleteRacerById(id).execute()
 
         val successful = addRacerResponse.isSuccessful
         val httpStatusCode = addRacerResponse.code()
