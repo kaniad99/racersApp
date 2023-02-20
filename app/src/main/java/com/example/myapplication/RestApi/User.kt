@@ -1,5 +1,6 @@
 package com.example.myapplication.RestApi
 
+import com.google.gson.JsonObject
 import com.google.gson.annotations.SerializedName
 
 data class User(
@@ -10,5 +11,7 @@ data class User(
     @SerializedName("description")
     val description: String,
     @SerializedName("email")
-    val email: String
+    val email: String,
+    @SerializedName("_links")
+    val links: JsonObject
 )

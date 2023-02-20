@@ -28,4 +28,11 @@ interface ServiceApi {
     @PUT("racers/{racerId}/profile")
     fun editRacer(@Path("racerId") racerId: Int, @Body racer: Racer): Call<Void>
 
+    @DELETE("users/{userId}")
+    fun deleteUserById(@Path("userId") userId: Int): Call<Void>
+
+    @PUT("users/{userId}/profile")
+    fun editUser(@Path("userId") racerId: Int, @Body user: User): Call<Void>
+
+
 }
