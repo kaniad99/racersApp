@@ -66,7 +66,6 @@ class RacersListFragment : Fragment() {
         binding.racersRecyclerView.adapter = adapter
 
         binding.fab.setOnClickListener {
-            Toast.makeText(activity, "Add Test", Toast.LENGTH_SHORT).show()
             val intent = Intent(activity, CreateRacerActivity::class.java)
             startActivity(intent)
         }
