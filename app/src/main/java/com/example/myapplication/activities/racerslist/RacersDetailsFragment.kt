@@ -45,9 +45,6 @@ class RacersDetailsFragment : Fragment() {
         binding.textTrackName.text = sharedViewModel.trackName.value
         binding.textRecordTime.text = sharedViewModel.recordTime.value
 
-        binding.buttonSecond.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
-        }
     }
 
     override fun onDestroyView() {
